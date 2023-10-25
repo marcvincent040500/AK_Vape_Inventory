@@ -7,10 +7,20 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   get "login" => "sessions#new"
 
+  resources :inventory
+
+  get '/inventory/search', to: 'inventory#search', as: 'inventory_search'
+
+
+  resources :inventories
+
+  resources :home
+  get "home" => "home#index"
+
   resources :users
   get "sign_up" => "users#new"
 
-  root "home#index"
+  root "sessions#new"
 
   # Defines the root path route ("/")
   # root "posts#index"

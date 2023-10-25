@@ -1,0 +1,35 @@
+<h1>INVENTORY</h1>
+<ul>
+  <% @items.each do |item| %>
+    <section class="movie">
+      <div class="image">
+        <%= image_tag(item.image_file_name)%>
+      </div>
+      <div class="summary">
+        <h1>
+          <%= link_to item.name,  item %>
+        </h1>
+        <h3>
+          <p>
+            Price: <%= item.price %>
+          </p>
+          <p>
+            MG: <%= item.mg_percent %>
+          </p>
+        </h3>
+        <p>
+          <%= truncate(item.name, length: 150, separator: ' ') %>
+        </p> 
+      </div>
+    </section>
+  <% end %>
+  <section class="admin">
+    <%= link_to "Add New Item", new_inventory_path, class: "button" %>
+  </section>
+
+<% if current_user_admin? %>
+  <section class="admin">
+    <%= link_to "Add New Item", new_inventory_path, class: "button" %>
+  </section>
+<% end %>
+</ul>

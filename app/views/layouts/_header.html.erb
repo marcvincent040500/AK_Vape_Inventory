@@ -1,15 +1,25 @@
  <header>
     <nav>
-      <%= link_to "#", root_path %>
+      <% if current_user %>
+        <%= link_to image_tag("ak.jpg"), home_index_path %>
       <ul>
         <li>
-          <%= link_to "Home", root_path %>
+          <%= link_to "Home", home_index_path %>
         </li>
+        <li>
+          <%= link_to "Inventory", inventory_index_path %>
+        </li>
+        
       </ul>
+      <% end %>
        <ul class="right">
           <% if current_user %>
+          <form class="search-form" method="GET" action="<%= inventory_search_path %>">
+            <input type="text" name="q" placeholder="Search Inventory">
+            <button type="submit">Search</button>
+          </form>
           <li><%= link_to current_user.email, current_user, class: "button" %></li>
-          <li><%= link_to "Account Settings", edit_user_path(current_user), class: "button" %></li>
+          <li><%= link_to "Edit Credentials", edit_user_path(current_user), class: "button" %></li>
           <li><%= link_to "Log Out", session_path, class: "button", 
         data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?" } %></li>
           <% else %>

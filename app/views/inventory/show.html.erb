@@ -1,0 +1,21 @@
+<section class="item-details">
+  <div class="summary">
+  <%= image_tag(@item.image_file_name)%>
+    <h1><%= @item.name %></h1>
+    <p>
+      <%= @item.mg_percent %>
+    </p>
+    <p>
+      <%= @item.price %>
+    </p>
+
+    <% if current_user_admin? %>
+    <section class="admin">
+      <%= link_to "Edit", edit_item_path(@item), class: "button" %>
+        <%= link_to "Delete", item_path(@item), class: "button", 
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </section>
+    <% end %>
+    
+
+    

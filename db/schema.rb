@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_24_160450) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_25_135424) do
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "mission"
     t.string "vision"
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.string "name"
+    t.string "mg_percent"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name", default: "placeholder.png"
   end
 
   create_table "users", force: :cascade do |t|
