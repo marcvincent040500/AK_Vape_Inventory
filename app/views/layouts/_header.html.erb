@@ -14,10 +14,10 @@
       <% end %>
        <ul class="right">
           <% if current_user %>
-          <form class="search-form" method="GET" action="<%= inventory_search_path %>">
+          <!-- <form class="search-form" method="GET" action="<%= inventory_search_path %>">
             <input type="text" name="q" placeholder="Search Inventory">
             <button type="submit">Search</button>
-          </form>
+          </form> --> 
           <li><%= link_to current_user.email, current_user, class: "button" %></li>
           <li><%= link_to "Edit Credentials", edit_user_path(current_user), class: "button" %></li>
           <li><%= link_to "Log Out", session_path, class: "button", 
