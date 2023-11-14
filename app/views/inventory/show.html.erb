@@ -10,8 +10,12 @@
       </p>
       <% if current_user_admin? %>
       <section class="admin">
-        <%= link_to "Edit", edit_item_path(@item), class: "button" %>
-          <%= link_to "Delete", item_path(@item), class: "button", 
+        <%= link_to "Edit", edit_inventory_path(@item), class: "button" %>
+          <%= link_to "Delete", inventory_path(@item), class: "button", 
           data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 </section>
 <% end %>
+<section class="admin">
+  <%= link_to "Add New Item", new_inventory_path, class: "button" %>
+  <%= link_to "Back to Inventory", inventory_index_path, class: "button" %>
+</section>
