@@ -5,4 +5,5 @@ class Inventory < ApplicationRecord
       with: /\w+\.(jpg|png)\z/i,
       message: "must be a JPG or PNG image"
     }
+  validates :number_of_stocks, presence: true
 end

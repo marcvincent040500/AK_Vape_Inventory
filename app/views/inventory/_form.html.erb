@@ -1,18 +1,25 @@
-<%= form_with(model: @item) do |f| %>
-<%= render "shared/errors", object: item%>
-  <%= f.label :name %>
-  <%= f.text_field :name, autofocus: true %>
+<%= form_with(model: item) do |f| %>
+  <%= render "shared/errors", object: item%>
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
 
-  <%= f.label :mg_percent %>
-  <%= f.text_field :mg_percent%>
-  
-  <%= f.label :price %>
-  <%= f.number_field :price %>
+    <%= f.label :mg_percent %>
+    <%= f.text_field :mg_percent%>
+    
+    <%= f.label :price %>
+    <%= f.number_field :price %>
 
-  <%= f.label :image_file_name %>
-  <%= f.text_field :image_file_name %>
-
-  <%= f.submit "Add Item" %> 
+    <%= f.label :number_of_stocks %>
+    <%= f.number_field :number_of_stocks %>
+    
+    <%= f.label :image_file_name %>
+    <%= f.text_field :image_file_name %>
+    
+    <% if item.new_record? %>
+    <%= f.submit "Create Item" %>
+    <% else %>
+    <%= f.submit "Update Item" %>
+    <% end %>
 <% end %>
 <section class="admin">
   <%= link_to "Back to Inventory", inventory_index_path, class: "button" %>

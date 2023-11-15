@@ -11,8 +11,7 @@ Rails.application.routes.draw do
 
   get '/inventory/search', to: 'inventory#search', as: 'inventory_search'
 
-
-  resources :inventories
+  resources :inventories, controller: 'inventory'
 
   resources :home
   get "home" => "home#index"

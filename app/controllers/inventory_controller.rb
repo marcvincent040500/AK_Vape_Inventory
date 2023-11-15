@@ -14,10 +14,7 @@ class InventoryController < ApplicationController
   end
 
   def search
-    @item = Inventory.find(params[:id])
-    @name = @item.name
-    search_query = @name
-    @search_results = @item.where("name LIKE ?", "%#{search_query}%")
+    @results = Inventory.where("name LIKE ?", "%#{params[:query]}%")
   end
 
   def create
@@ -29,10 +26,24 @@ class InventoryController < ApplicationController
       end
   end
 
+  def edit
+    @item = Inventory.find(params[:id])
+  end
+
+  def update
+    @item = Inventory.find(params[:id])
+  
+    if @item.update(inventory_params)
+      redirect_to inventory_path(@item), notice: "Item updated successfully."
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @item = Inventory.find(params[:id])
     @item.destroy
-    redirect_to root_url, status: :see_other,
+    redirect_to inventory_index_path, status: :see_other,
     alert: "Item Deleted!"
   end
 end
@@ -43,7 +54,9 @@ private
     inventory_params = params.require(:inventory).
       permit(:name, 
             :price, 
-            :mg_percent)
+            :mg_percent,
+            :image_file_name,
+            :number_of_stocks)
   end
 
     
