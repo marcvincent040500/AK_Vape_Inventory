@@ -1,5 +1,5 @@
- <header>
-    <nav>
+<header style="background-color: #1b132b;">
+  <nav style="background-color: #1b132b;">
       <% if current_user %>
         <%= link_to image_tag("ak.jpg"), home_index_path %>
       <ul>
@@ -10,17 +10,24 @@
           <%= link_to "Inventory", inventory_index_path %>
         </li>
         <li>
-          <%= link_to "Order Now!", 'https://www.facebook.com/profile.php?id=61550976876490', target: '_blank' %>
+          <%= link_to "Order Now", 'https://www.facebook.com/profile.php?id=61550976876490', target: '_blank' %>
         </li>
         </ul>
       </ul>
       <% end %>
        <ul class="right">
-          <% if current_user %>
+        <% if current_user_admin? %>
+          <li><%= link_to "Users", users_path, class: "button" %></li>
           <li><%= link_to current_user.email, current_user, class: "button" %></li>
           <li><%= link_to "Edit Credentials", edit_user_path(current_user), class: "button" %></li>
           <li><%= link_to "Log Out", session_path, class: "button", 
         data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?" } %></li>
+          <% elsif current_user %>
+          <li><%= link_to current_user.email, current_user, class: "button" %></li>
+          <li><%= link_to "Edit Credentials", edit_user_path(current_user), class: "button" %></li>
+          <li><%= link_to "Log Out", session_path, class: "button", 
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?" } %></li>
+          
           <% else %>
           <li><%= link_to "Login", login_path, class: "button"%></li>
           <li><%= link_to "Register", sign_up_path(@user), class: "button"%></li>

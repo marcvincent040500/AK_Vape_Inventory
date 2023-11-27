@@ -1,6 +1,7 @@
-<section class="item-details">
+<section class="movie-details">
   <div class="summary">
-      <%= image_tag(@item.image_file_name, style: "width:300px; height:300px;") %>
+      <div class="text-center">
+        <%= image_tag(@item.image_file_name, style: "width:300px; height:300px;") %>
       <h1>FLAVOR: <%= @item.name %></h1>
       <p>
         <h3>NICOTINE LEVEL: <%= @item.mg_percent %></h3>
@@ -11,6 +12,7 @@
       <p>
         <h3>Stocks: <%= @item.number_of_stocks %></h3>
       </p>
+      </div>
 <section class="admin">
   <%= link_to "Add New Item", new_inventory_path, class: "button" %>
   <%= link_to "Back to Inventory", inventory_index_path, class: "button" %>

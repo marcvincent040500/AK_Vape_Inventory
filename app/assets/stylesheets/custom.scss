@@ -38,6 +38,10 @@ $input-bg: white;
 
 // Custom CSS
 
+.text-center {
+  text-align: center;
+}
+
 .content {
   @extend .container;
 }
@@ -142,6 +146,7 @@ section.movie {
     img {
       width: 100px;
       box-shadow: $box-shadow;
+      border: 2px solid #793969;
     }
   }
 

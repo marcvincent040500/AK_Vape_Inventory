@@ -1,4 +1,4 @@
-<h1>INVENTORY</h1>
+<h1 class="text-center">INVENTORY</h1>
 <ul>
   <% @items.each do |item| %>
     <section class="movie">
@@ -7,7 +7,7 @@
       </div>
       <div class="summary">
         <h1>
-          <%= link_to item.name,  item %>
+          <%= link_to item.name, item, style: "color: #793969;" %>
         </h1>
         <h3>
           <p>
@@ -17,9 +17,6 @@
             MG: <%= item.mg_percent %>
           </p>
         </h3>
-        <p>
-          <%= truncate(item.name, length: 150, separator: ' ') %>
-        </p> 
       </div>
     </section>
   <% end %>

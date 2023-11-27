@@ -1,11 +1,18 @@
-<h1>HOME</h1>
+<h1 class="text-center">HOME</h1>
+  <section section class="movie">
+    <div class="text-center">
+      <%= link_to home_index_path do %>
+        <%= image_tag("ak.jpg", style: "width: 300px;") %>
+      <% end %>
+    </div>
+  </section>
   <section class="movie">
-    <div>
+    <div class="text-center">
       <%= Home.last.mission %>
     </div>
   </section>
   <section class="movie">
-    <div>
+    <div class="text-center">
       <%= Home.last.vision %>
     </div>
   </section>

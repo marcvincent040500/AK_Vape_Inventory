@@ -46,8 +46,6 @@ class UsersController < ApplicationController
       alert: "User deleted"
   end
 
-
-
   private
 
   def user_params
