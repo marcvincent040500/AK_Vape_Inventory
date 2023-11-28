@@ -1,4 +1,10 @@
 <h1 class="text-center">INVENTORY</h1>
+<div class="search-align">
+  <%= form_tag(inventory_index_path, method: :get) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search items..." , style: "height: 40%"%>
+    <%= submit_tag "Search", class: "button" %>
+  <% end %>
+</div>
 <ul>
   <% @items.each do |item| %>
     <section class="movie">

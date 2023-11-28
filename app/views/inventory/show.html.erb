@@ -10,7 +10,9 @@
         <h3>PRICE: <%= @item.price %></h3>
       </p>
       <p>
-        <h3>Stocks: <%= @item.number_of_stocks %></h3>
+        <h3>Stocks: <span id="stocks-count"><%= @item.number_of_stocks %></span></h3>
+        <button class="adjust-stock" data-action="minus">-</button>
+        <button class="adjust-stock" data-action="plus">+</button>
       </p>
       </div>
 <section class="admin">
@@ -24,3 +26,25 @@
     </section>
   <% end %>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const stocksCountElement = document.getElementById('stocks-count');
+    const adjustStockButtons = document.querySelectorAll('.adjust-stock');
+
+    adjustStockButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const action = this.dataset.action;
+        let currentStocks = parseInt(stocksCountElement.innerText);
+
+        if (action === 'plus') {
+          currentStocks++;
+        } else if (action === 'minus' && currentStocks > 0) {
+          currentStocks--;
+        }
+
+        stocksCountElement.innerText = currentStocks;
+      });
+    });
+  });
+</script>

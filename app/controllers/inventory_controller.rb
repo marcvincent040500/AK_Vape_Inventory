@@ -1,6 +1,12 @@
 class InventoryController < ApplicationController
   def index
     @items = Inventory.all
+
+    @items = if params[:search]
+      Inventory.where('name LIKE ?', "%#{params[:search]}%")
+    else
+      Inventory.all
+    end
   end
 
   def show
@@ -32,10 +38,11 @@ class InventoryController < ApplicationController
 
   def update
     @item = Inventory.find(params[:id])
-  
+
     if @item.update(inventory_params)
       redirect_to inventory_path(@item), notice: "Item updated successfully."
     else
+      puts @item.errors.full_messages
       render :edit
     end
   end
@@ -56,7 +63,8 @@ private
             :price, 
             :mg_percent,
             :image_file_name,
-            :number_of_stocks)
+            :number_of_stocks,
+            :image)
   end
 
     

@@ -42,6 +42,16 @@ $input-bg: white;
   text-align: center;
 }
 
+.search-align {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.form-container {
+  text-align: left; /* Reset text-align for form elements */
+}
+
 .content {
   @extend .container;
 }
@@ -150,6 +160,7 @@ section.movie {
     }
   }
 
+ 
   .summary {
     @extend .col-md-9, .text-start;
   }
