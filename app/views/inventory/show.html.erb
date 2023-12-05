@@ -10,10 +10,10 @@
         <h3>PRICE: <%= @item.price %></h3>
       </p>
       <p>
-        <h3>Stocks: <span id="stocks-count"><%= @item.number_of_stocks %></span></h3>
-        <button class="adjust-stock" data-action="minus">-</button>
-        <button class="adjust-stock" data-action="plus">+</button>
-      </p>
+        <h3>STOCKS: <span id="stocks-count"><%= @item.number_of_stocks %></span></h3>
+        <!-- <button class="adjust-stock" data-action="minus">-</button>
+        <button class="adjust-stock" data-action="plus">+</button>-->
+      </p> 
       </div>
 <section class="admin">
   <%= link_to "Add New Item", new_inventory_path, class: "button" %>
@@ -27,7 +27,7 @@
   <% end %>
 </section>
 
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', function() {
     const stocksCountElement = document.getElementById('stocks-count');
     const adjustStockButtons = document.querySelectorAll('.adjust-stock');
@@ -47,4 +47,4 @@
       });
     });
   });
-</script>
+</script> -->
