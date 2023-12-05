@@ -12,8 +12,8 @@
     <%= f.label :number_of_stocks %>
     <%= f.number_field :number_of_stocks %>
     
-    <%= f.label :image_file_name %>
-    <%= f.text_field :image_file_name %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
     
     <% if item.new_record? %>
     <%= f.submit "Create Item" %>

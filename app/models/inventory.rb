@@ -6,4 +6,6 @@ class Inventory < ApplicationRecord
       message: "must be a JPG or PNG image"
     }
   validates :number_of_stocks, presence: true
+
+  has_one_attached :image
 end
